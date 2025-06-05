@@ -1,1 +1,83 @@
+/* Reset default margin and font */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f5ff;
+  color: #333;
+}
+
+/* Wrapper for everything */
+#all-contents {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Navigation bar styles */
+nav {
+  background-color: #6a5acd;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+nav h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+#nav-ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-li a:hover {
+  text-decoration: underline;
+}
+
+/* Main section layout */
+main {
+  display: flex;
+  margin-top: 20px;
+}
+
+/* Sidebar styles */
+.sidebar {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.sidebar-img {
+  width: 100%;
+  max-width: 200px;
+  border-radius: 10px;
+}
+
+/* Content area */
+.content {
+  flex: 2;
+}
+
+/* Interests section */
+#interests {
+  margin-top: 20px;
+}
+
+#interests ul {
+  list-style-type: square;
+  padding-left: 20px;
+}
+
+#interests li {
+  margin-bottom: 5px;
+}
 
