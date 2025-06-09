@@ -30,7 +30,6 @@ $(function () {
 
     
 // TODO 1: Enable the grid
-// toggleGrid();
 kaboom({
   width: 640,
   height: 480,
@@ -43,11 +42,13 @@ kaboom({
 loadRoot("https://kaboomjs.com/sprites/");
 loadSprite("bean", "bean.png");
 loadSprite("block", "grass.png");
+loadSprite("coin", "coin.png");
+loadSprite("cannon", "mark.png"); // placeholder cannon sprite
 
-// Set gravity so the player falls
+// Set gravity
 setGravity(1200);
 
-// Add the ground platform
+// Add ground
 add([
   rect(width(), 48),
   pos(0, height() - 48),
@@ -56,7 +57,7 @@ add([
   color(127, 200, 255),
 ]);
 
-// TODO 2 - Create Platforms
+// TODO 2: Add platforms
 const platforms = [
   vec2(100, 380),
   vec2(200, 300),
@@ -66,80 +67,58 @@ const platforms = [
 
 for (const p of platforms) {
   add([
-    sprit("block"),
+    sprite("block"),
     pos(p),
     area(),
     solid(),
   ]);
 }
 
-
-
-
-// Player controls
-onKeyDown("left", () => {
-  player.move(-200, 0);
-});
-
-onKeyDown("right", () => {
-  player.move(200, 0);
-});
-
-onKeyPress("space", () => {
-  if (player.isGrounded()) {
-    player.jump(500);
-  }
-});
-
-
-
-
-    // TODO 3 - Create Collectables
-    collectables
+// TODO 3: Add collectables
 const coins = [
   vec2(120, 340),
   vec2(220, 260),
   vec2(320, 180),
 ];
+
 for (const c of coins) {
   add([
     sprite("coin"),
     pos(c),
     area(),
-    "coin", // 
+    "coin",
   ]);
 }
-// Add the player
+
+// Add player
 const player = add([
   sprite("bean"),
   pos(80, 40),
   area(),
   body(),
 ]);
-// Player controls
+
+// Controls
 onKeyDown("left", () => {
   player.move(-200, 0);
 });
+
 onKeyDown("right", () => {
   player.move(200, 0);
 });
+
 onKeyPress("space", () => {
   if (player.isGrounded()) {
     player.jump(500);
   }
 });
-// TODO: Collect coins when touched
+
+// Collect coins
 player.onCollide("coin", (coin) => {
   destroy(coin);
-  // Optionally play sound or update score
 });
 
-
-
-    
-    // TODO 4 - Create Cannons
-     loadSprite("cannon", "https://kaboomjs.com/sprites/mark.png");
-
+// TODO 5: Add cannons and bullets
 function spawnBullet(x, y) {
   const bullet = add([
     rect(12, 6),
@@ -167,6 +146,7 @@ function spawnCannon(posX, posY) {
 
 spawnCannon(500, 400);
 
+// Lose if hit by bullet
 player.onCollide("bullet", () => {
   add([
     text("Game Over", { size: 32 }),
