@@ -1,5 +1,5 @@
 $(function () {
-  // initialize canvas and context when able to
+  //== initialize canvas and context when able to
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
   window.addEventListener("load", loadJson);
@@ -28,7 +28,6 @@ $(function () {
 
 
 
-    
 // TODO 1: Enable the grid
 kaboom({
   width: 640,
@@ -155,6 +154,7 @@ player.onCollide("bullet", () => {
   ]);
   destroy(player);
 });
+
 
 
 
