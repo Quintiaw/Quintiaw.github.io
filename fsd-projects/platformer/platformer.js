@@ -28,7 +28,6 @@ $(function () {
 
 
 
-// TODO 1: Enable the grid
 kaboom({
   width: 640,
   height: 480,
@@ -38,16 +37,14 @@ kaboom({
 });
 
 // Load sprites
-loadRoot("https://kaboomjs.com/sprites/");
-loadSprite("bean", "bean.png");
-loadSprite("block", "grass.png");
-loadSprite("coin", "coin.png");
-loadSprite("cannon", "mark.png"); // placeholder cannon sprite
+loadSprite("bean", "https://kaboomjs.com/sprites/bean.png");
+loadSprite("block", "https://kaboomjs.com/sprites/grass.png");
+loadSprite("coin", "https://kaboomjs.com/sprites/coin.png");
+loadSprite("cannon", "https://kaboomjs.com/sprites/mark.png");
 
-// Set gravity
 setGravity(1200);
 
-// Add ground
+// Ground
 add([
   rect(width(), 48),
   pos(0, height() - 48),
@@ -56,7 +53,7 @@ add([
   color(127, 200, 255),
 ]);
 
-// TODO 2: Add platforms
+// Platforms
 const platforms = [
   vec2(100, 380),
   vec2(200, 300),
@@ -73,7 +70,7 @@ for (const p of platforms) {
   ]);
 }
 
-// TODO 3: Add collectables
+// Coins
 const coins = [
   vec2(120, 340),
   vec2(220, 260),
@@ -89,7 +86,7 @@ for (const c of coins) {
   ]);
 }
 
-// Add player
+// Player
 const player = add([
   sprite("bean"),
   pos(80, 40),
@@ -97,7 +94,6 @@ const player = add([
   body(),
 ]);
 
-// Controls
 onKeyDown("left", () => {
   player.move(-200, 0);
 });
@@ -117,9 +113,9 @@ player.onCollide("coin", (coin) => {
   destroy(coin);
 });
 
-// TODO 5: Add cannons and bullets
+// Bullets
 function spawnBullet(x, y) {
-  const bullet = add([
+  add([
     rect(12, 6),
     pos(x, y),
     area(),
@@ -130,22 +126,22 @@ function spawnBullet(x, y) {
   ]);
 }
 
-function spawnCannon(posX, posY) {
+// Cannon
+function spawnCannon(x, y) {
   add([
     sprite("cannon"),
-    pos(posX, posY),
+    pos(x, y),
     area(),
-    "cannon",
   ]);
 
   loop(2, () => {
-    spawnBullet(posX + 20, posY + 8);
+    spawnBullet(x + 20, y + 8);
   });
 }
 
 spawnCannon(500, 400);
 
-// Lose if hit by bullet
+// Game over
 player.onCollide("bullet", () => {
   add([
     text("Game Over", { size: 32 }),
@@ -154,6 +150,7 @@ player.onCollide("bullet", () => {
   ]);
   destroy(player);
 });
+
 
 
 
