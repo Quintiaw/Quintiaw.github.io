@@ -66,19 +66,14 @@ const platforms = [
 
 for (const p of platforms) {
   add([
-    sprite("block"),
+    sprit("block"),
     pos(p),
     area(),
     solid(),
   ]);
 }
 
-// Add the
-const   add,[
-  sprite("bean"),
-  pos(80, 40),
-  area(),
-  body(),
+
 
 
 // Player controls
