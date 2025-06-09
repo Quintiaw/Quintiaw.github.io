@@ -45,7 +45,7 @@ loadSprite("cannon", "https://kaboomjs.com/sprites/mark.png");
 setGravity(1200);
 
 // Ground
-add([
+([
   rect(width(), 48),
   pos(0, height() - 48),
   area(),
