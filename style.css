@@ -10,7 +10,7 @@ body {
 #all-contents {
   max-width: 900px;
   margin: auto;
-  padding: 20px;
+  
 }
 
 /* Navigation bar styles */
@@ -19,19 +19,28 @@ nav {
   color: white;
   padding: 15px;
   border-radius: 8px;
+  margin-bottom:20px auto;
+  display: flex;
+  justify-content: space-between;
 }
 
-nav h1 {
+
+ h1 {
   margin: 0;
   font-size: 24px;
+  display: flex;
+  align-items:center;
 }
 
 #nav-ul {
   list-style-type: none;
   padding: 0;
-  margin-top: 10px;
+  margin: 0;
   display: flex;
-  gap: 20px;
+}
+.nav-li{
+  display:inline-block;
+  padding:0 10px;
 }
 
 .nav-li a {
@@ -52,8 +61,8 @@ main {
 
 /* Sidebar styles */
 .sidebar {
-  flex: 1;
-  padding-right: 20px;
+  margin-right: 25px;
+  padding: 10px;
 }
 
 .sidebar-img {
@@ -67,18 +76,11 @@ main {
   flex: 2;
 }
 
-/* Interests section */
+/* interests section styles */
 #interests {
-  margin-top: 20px;
-}
-
-#interests ul {
-  list-style-type: square;
-  padding-left: 20px;
-}
-
-#interests li {
-  margin-bottom: 5px;
+    border: 4px silver ridge;
+    padding: 8px;
+    margin-top: 20px;
 }
 
 /* Portfolio styles */
