@@ -80,12 +80,12 @@ var init = function (window) {
 
       // TODO 8 / TODO 9 : Iterate over the array
 
-      function update() {
+    
         for (var i = 0; i < circles.length; i++) {
           physikz.updatePosition(circles[i]);
           game.checkCirclePosition(circles[i]);
         }
-      }
+      
     }
 
     /* 
