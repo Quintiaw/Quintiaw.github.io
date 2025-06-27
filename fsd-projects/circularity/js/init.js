@@ -90,7 +90,11 @@ game.checkCirclePosition([4]);
             circle.y += circle.dy;
            }
             function update() {
-                for (var i = 0; i < circles.length;)
+                for (var i = 0; i < circles.length; i++){
+                    physiks.updateposition(circles[i]);
+                    game.checkCirclePosition(circles[i]);
+                }
+
             }
         }
     
